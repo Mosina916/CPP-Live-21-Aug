@@ -2,7 +2,7 @@
 using namespace std;
 
 // gloabal variable
-// int r=70;
+int r=70;
 
 
 int main(){
