@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-// 
+// by default arrays pass by refrenec
 void updatearr(int a[],int tb){
 
 	for(int i=0;i<=tb-1;i++){
