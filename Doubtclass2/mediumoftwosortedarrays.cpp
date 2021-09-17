@@ -1,4 +1,5 @@
 #include<iostream>
+#include<algorithm>
 using namespace std;
 
 int main(){
@@ -35,21 +36,16 @@ int main(){
 	}
 
 
+	int b[5]={5,3,6,7,2};
+	sort(b,b+5);
+
+	// 2 3 5 6 7
+
+	//inbuild
 	sort(arr,arr+2*n);
 
 
 	cout<<arr[n-1]<<endl;
-
-
-
-
-
-
-
-
-
-
-
 	
 
 	return 0;
