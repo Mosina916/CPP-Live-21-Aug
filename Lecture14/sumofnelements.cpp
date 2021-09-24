@@ -28,8 +28,6 @@ int sumofarray2(int arr[],int n){
 	}
 	
 
-
-
 	// recursive case
 	return sumofarray2(arr,n-1)+arr[n-1];//14
 

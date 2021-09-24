@@ -55,13 +55,7 @@ bool isarraysortedornot3(int *arr,int n,int i){
 	}
 	return false;
 
-
-
-
 }
-
-
-
 
 
 int main(){
