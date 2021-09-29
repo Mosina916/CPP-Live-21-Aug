@@ -108,5 +108,5 @@ int main(){
 
 	cout<<cnt<<endl;
 
-	return 1;
+	return 0;
 }

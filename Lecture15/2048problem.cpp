@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-char s[][10]={"zero","one","two","three","four","five","six","seven","Eight","Nine"};
+string s[]={"zero","one","two","three","four","five","six","seven","Eight","Nine"};
 void problem2048rev(int n){
 
 	// base case
