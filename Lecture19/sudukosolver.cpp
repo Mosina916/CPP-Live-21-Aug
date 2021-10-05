@@ -62,9 +62,9 @@ bool sudukosolver(int mat[9][9],int i,int j,int n){
 		}
 		cout<<endl;
 
-		// return true;
+		return true;
 
-		return false;
+		// return false;
 	}
 
 
