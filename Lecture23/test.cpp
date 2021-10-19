@@ -15,7 +15,6 @@ public:
 
 };
 
-
 void insertionathead(node*&head,node*&tail,int data){
 	// create node
 	node*n=new node(data);
