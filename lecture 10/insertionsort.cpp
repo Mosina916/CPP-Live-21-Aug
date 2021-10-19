@@ -20,6 +20,17 @@ void insertionsort(int arr[],int n){
 }
 
 int main(){
+
+	// int arr[100];
+	// int n;
+	// cin>>n;
+	// for (int i = 0; i < n; ++i)
+	// {
+	// 	cin>>arr[i];
+	// }
+
+
+	
 	int arr[]={5,4,3,2,1,6,8,4};
 	int n=sizeof(arr)/sizeof(int);//5
 
