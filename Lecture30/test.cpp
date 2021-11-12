@@ -98,6 +98,40 @@ void postorderprint(node*root){
 }
 
 
+int countofnodes(node*root){
+	// base case
+	if(root==NULL){
+		return 0;
+	}
+	// // recursive
+
+	// int lc=countofnodes(root->left);//3
+	// int rc=countofnodes(root->right);//1
+
+	// return lc+rc+1;
+
+	return countofnodes(root->left)+countofnodes(root->right)+1;
+
+}
+
+
+// sum of nodes
+
+
+int sumofnodes(node*root){
+
+	// base case
+	if(root==NULL){
+		return 0;
+	}
+
+
+	// recursive 
+
+	return sumofnodes(root->left)+sumofnodes(root->right)+root->data;
+}
+
+
 
 
 
@@ -120,6 +154,13 @@ int main(){
 	postorderprint(root);
 
 	cout<<endl;
+
+
+	cout<<"count of nodes : "<<countofnodes(root)<<endl;
+
+
+
+	cout<<"sum of nodes : "<<sumofnodes(root)<<endl;
 
 
 
