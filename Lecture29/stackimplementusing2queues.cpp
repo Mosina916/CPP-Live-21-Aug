@@ -6,7 +6,6 @@ class Stack{
 	queue<int>q2;
 public:
 	// push
-
 	void push(int d){//56
 		if(q1.empty()&&q2.empty()){
 			q1.push(d);
@@ -21,8 +20,6 @@ public:
 		}
 		// 
 	}
-
-
 	// pop
 	void pop(){
 		if(!q1.empty()&&q2.empty()){
@@ -92,7 +89,6 @@ public:
 
 
 	}
-
 
 	// size
 	int size(){

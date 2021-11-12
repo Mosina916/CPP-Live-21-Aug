@@ -218,7 +218,7 @@ node* midpoint(node*head){
 
 	node*fast=head->next;
 
-	while(fast!=NULL&&fast->next!=NULL){//segmentation fault
+	while(fast->next!=NULL&&fast!=NULL){//segmentation fault
 		fast=fast->next->next;//NULL 
 		slow=slow->next;
 
