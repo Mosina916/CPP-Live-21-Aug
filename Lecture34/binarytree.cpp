@@ -332,7 +332,124 @@ node* createtreeinpre(int s,int e){//0 8
 
 
 }
+bool searchinbt(node*root,int key){
+	if(root==NULL){
+		return false;
+	}
 
+
+	// rucursive case
+
+	if(root->data==key){
+		return true;
+	}
+	else if(searchinbt(root->left,key)or searchinbt(root->right,key)){
+		return true;
+	}
+	else{
+		return false;
+	}
+
+
+}
+
+
+node* insertinbst(node*root,int data){//NULL 10
+	if(root==NULL){
+		root=new node(data);
+		return root;
+
+	}
+	if(data<=root->data){//3<=8
+		root->left=insertinbst(root->left,data);
+
+	}
+	else{
+		root->right=insertinbst(root->right,data);
+
+	}
+	return root;
+
+
+
+
+}
+
+
+// binary search tree
+// 8 3 10 1 6 14 4 7 13 -1
+node* Buildbstree(){
+	node*root=NULL;
+	int data;
+	cin>>data;//8
+	while(data!=-1){
+		root=insertinbst(root,data);//8 10
+		cin>>data;//10
+
+	}
+
+	return root;
+
+}
+
+bool searchinbst(node*root,int key){
+
+	// base case
+	if(root==NULL){
+		return false;
+	}
+
+	// recursive case
+	if(root->data==key){
+		return true;
+	}
+	else if(key<root->data){
+		return searchinbst(root->left,key);
+	}
+	else{
+		return searchinbst(root->right,key);
+	}
+
+}
+// range in sorted order
+// void printinarange(node*root,int k1,int k2){ //6 13
+// 	// base case
+// 	if(root==NULL){
+// 		return;
+// 	}
+
+
+
+// 	// recursive case
+// 	printinarange(root->left,k1,k2);//lst--> 6 7
+// 	if(root->data>=k1&&root->data<=k2){
+// 		cout<<root->data<<" "; //8
+// 	}
+// 	printinarange(root->right,k1,k2);//10 13
+
+
+// }
+
+// range in reverse order
+void printinarange(node*root,int k1,int k2){ //6 13
+	// base case
+	if(root==NULL){
+		return;
+	}
+
+
+
+	// recursive case
+		printinarange(root->right,k1,k2);//10 13
+	
+	if(root->data>=k1&&root->data<=k2){
+		cout<<root->data<<" "; //8
+	}
+	printinarange(root->left,k1,k2);//lst--> 6 7
+
+
+
+}
 
 
 
@@ -398,12 +515,41 @@ int main(){
 	// cout<<endl;
 	// inorderprint(root);
 
-	int n=sizeof(pre)/sizeof(int);
+	// int n=sizeof(pre)/sizeof(int);
 
 
 
-	node*root=createtreeinpre(0,n-1);
+	// node*root=createtreeinpre(0,n-1);
+	// printlevel(root);
+
+
+	// if(searchinbt(root,90)){
+	// 	cout<<"yes exists"<<endl;
+
+	// }
+	// else{
+	// 	cout<<"Doesn't exist"<<endl;
+
+	// }
+
+
+	node*root=Buildbstree();
 	printlevel(root);
+
+
+	// if(searchinbt(root,476)){
+	// 	cout<<"yes exists"<<endl;
+
+	// }
+	// else{
+	// 	cout<<"Doesn't exist"<<endl;
+
+	// }
+
+	printinarange(root,6,13);
+
+
+
 
 
 
