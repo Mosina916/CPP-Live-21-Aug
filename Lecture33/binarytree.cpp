@@ -170,39 +170,39 @@ int diameter(node*root){
 
 }
 
-// class Pair{
-// public: 
-// 	int diameter;
-// 	int height;
-// };
+class Pair{
+public: 
+	int diameter;
+	int height;
+};
 
-// Pair fastdiameter(node*root){
-// 	Pair p;
-// 	// base case
-// 	if(root==NULL){
-// 		p.diameter=0;
-// 		p.height=0;
-// 		return p;
+Pair fastdiameter(node*root){
+	Pair p;
+	// base case
+	if(root==NULL){
+		p.diameter=0;
+		p.height=0;
+		return p;
 
 
-// 	}
+	}
 
-// 	// recursive case
-// 	Pair x=fastdiameter(root->left);//0d,0h
-// 	Pair y=fastdiameter(root->right);//2,3 
-// 	p.height=max(x.height,y.height)+1;
+	// recursive case
+	Pair x=fastdiameter(root->left);//0d,0h
+	Pair y=fastdiameter(root->right);//2,3 
+	p.height=max(x.height,y.height)+1;
 
-// 	// p.diameter
-// 	int op1=x.height+y.height;//agar root k through pass horaha hai
+	// p.diameter
+	int op1=x.height+y.height;//agar root k through pass horaha hai
 
-// 	int op2=x.diameter;
-// 	int op3=y.diameter;
+	int op2=x.diameter;
+	int op3=y.diameter;
 
-// 	p.diameter=max(op1,max(op3,op2));
+	p.diameter=max(op1,max(op3,op2));
 
-// 	return p;
+	return p;
 
-// }
+}
 
 
 void mirror(node*root){
@@ -452,76 +452,14 @@ void printinarange(node*root,int k1,int k2){ //6 13
 }
 
 
-bool isbstornot(node*root,int min=INT_MIN,int max=INT_MAX){
-
-
-	// base case
-	if(root==NULL){
-		return true;
-	}
-
-
-
-	// recursive case
-	if((root->data>=min&&root->data<=max)&& isbstornot(root->left,min,root->data)&&isbstornot(root->right,root->data,max)){
-		return true;
-
-	}
-	else{
-		return false;
-
-	}
-
-
-}
-
-
-class Pair{
-public:
-	int height;
-	bool balanced;
-	// constructor
-	Pair(){
-		height=0;
-		balanced=true;
-	}
-};
-
-
-Pair isheightbalanedornot(node*root){
-	Pair p;
-	// base case
-	if(root==NULL){
-		return p;
-	}
-
-	// recursive case
-	Pair lst=isheightbalanedornot(root->left);
-	Pair rst=isheightbalanedornot(root->right);
-	p.height=max(lst.height,rst.height)+1;
-	// p ki balance check larne k lye
-	if(lst.balanced==true&&rst.balanced==true&& (abs(lst.height-rst.height)<=1)){
-		p.balanced=true;
-
-	}
-	else{
-		p.balanced=false;
-	}
-
-	return p;
-
-}
-
-
 
 // input 
 
 
 // 8 3 1 -1 -1 6 4 -1 -1 7 -1 -1 10 -1 14 13 -1 -1 -1
-// 8 3 1 -1 -1 6 4 -1 -1 7 9 -1 -1 -1 10 -1 14 13 -1 -1 -1
 int main(){
 
-	node*root=Buildtree();
+	// node*root=Buildtree();
 
 	// cout<<"preorderprint : "<<endl;
 	// preorderprint(root);
@@ -595,7 +533,7 @@ int main(){
 	// }
 
 
-	// node*root=Buildbstree();
+	node*root=Buildbstree();
 	printlevel(root);
 
 
@@ -609,24 +547,6 @@ int main(){
 	// }
 
 	printinarange(root,6,13);
-
-	if(isbstornot(root)){
-		cout<<"yes it is a bst"<<endl;
-
-	}
-	else{
-		cout<<"No it is not a bst"<<endl;
-	}
-
-
-	Pair l=isheightbalanedornot(root);
-	if(l.balanced){
-		cout<<"yes balanced "<<endl;
-
-	}
-	else{
-		cout<<"Not balanced "<<endl;
-	}
 
 
 
