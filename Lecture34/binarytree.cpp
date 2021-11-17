@@ -514,6 +514,110 @@ Pair isheightbalanedornot(node*root){
 
 
 
+
+
+class linkedlist{
+public:
+	node*head;
+	node*tail;
+	linkedlist(){
+		head=NULL;
+		tail=NULL;
+	}
+
+};
+
+
+linkedlist bsttoll(node*root){
+	linkedlist l;
+
+
+	// base case
+	if(root==NULL){
+
+		return l;
+
+	}
+
+
+
+	// recursive case
+	// case 1: no child exist 
+	if(root->left==NULL&&root->right==NULL){
+		l.head=root;
+		l.tail=root;
+		// return l;
+
+	}
+
+
+	// case 2: left child exist 
+	else if(root->left!=NULL&&root->right==NULL){
+		linkedlist lst=bsttoll(root->left);
+		lst.tail->right=root;
+		l.head=lst.head;
+		l.tail=root;
+		// return l;
+
+	}
+
+
+	// case 3: right child exist 
+		else if(root->left==NULL&&root->right!=NULL){
+			linkedlist rst=bsttoll(root->right);
+			root->right=rst.head;
+			l.head=root;
+			l.tail=rst.tail;
+			// return l;
+
+	}
+	// case 4: left and right child both exists
+	else{
+		linkedlist lst=bsttoll(root->left);
+		linkedlist rst=bsttoll(root->right);
+		lst.tail->right=root;
+		root->right=rst.head;
+		l.head=lst.head;
+		l.tail=rst.tail;
+		// return l;
+
+	}
+	return l;
+}
+
+
+void printll(node*head){
+	while(head!=NULL){
+		cout<<head->data<<"-->";
+		head=head->right;
+	}
+	cout<<"NULL"<<endl;
+}
+
+int arr[]={1,2,3,4,8,9,10};
+
+node* sortedarraysebst(int s,int e){
+	// base case
+	if(s>e){
+		return NULL;
+	}
+
+
+	// recursive case
+	int mid=(s+e)/2;
+	node*root=new node(arr[mid]);
+
+	root->left=sortedarraysebst(s,mid-1);//lst
+	root->right=sortedarraysebst(mid+1,e);//rst
+
+
+	return root;
+
+
+
+
+}
+
 // input 
 
 
@@ -521,7 +625,7 @@ Pair isheightbalanedornot(node*root){
 // 8 3 1 -1 -1 6 4 -1 -1 7 9 -1 -1 -1 10 -1 14 13 -1 -1 -1
 int main(){
 
-	node*root=Buildtree();
+	// node*root=Buildtree();
 
 	// cout<<"preorderprint : "<<endl;
 	// preorderprint(root);
@@ -596,7 +700,7 @@ int main(){
 
 
 	// node*root=Buildbstree();
-	printlevel(root);
+	// printlevel(root);
 
 
 	// if(searchinbt(root,476)){
@@ -608,25 +712,35 @@ int main(){
 
 	// }
 
-	printinarange(root,6,13);
+	// printinarange(root,6,13);
 
-	if(isbstornot(root)){
-		cout<<"yes it is a bst"<<endl;
+	// if(isbstornot(root)){
+	// 	cout<<"yes it is a bst"<<endl;
 
-	}
-	else{
-		cout<<"No it is not a bst"<<endl;
-	}
+	// }
+	// else{
+	// 	cout<<"No it is not a bst"<<endl;
+	// }
 
 
-	Pair l=isheightbalanedornot(root);
-	if(l.balanced){
-		cout<<"yes balanced "<<endl;
+	// Pair l=isheightbalanedornot(root);
+	// if(l.balanced){
+	// 	cout<<"yes balanced "<<endl;
 
-	}
-	else{
-		cout<<"Not balanced "<<endl;
-	}
+	// }
+	// else{
+	// 	cout<<"Not balanced "<<endl;
+	// }
+
+
+	// linkedlist x=bsttoll(root);
+	// printll(x.head);
+
+
+	int n=sizeof(arr)/sizeof(int);
+	node*root=sortedarraysebst(0,n-1);
+	printlevel(root);
+
 
 
 
